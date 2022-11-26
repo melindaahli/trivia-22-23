@@ -30,6 +30,7 @@ In this unit, coders will work in groups to build a project using HTML, CSS, Rea
 ### Goal 1: Render a question from sample_data.json on the screen.
 
 - [ ] Look over the "Flow Chart" section in your planning document.
+- [ ] Create a folder named "components".
 
 In the components folder:
 
