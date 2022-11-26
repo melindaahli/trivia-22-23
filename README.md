@@ -4,95 +4,179 @@
 
 In this unit, coders will work in groups to build a project using HTML, CSS, React. Their task is to build out the front-end for a Kahoot style question game that displays a question and the possible answers, allows a user to choose answer and determine whether they are right or wrong.
 
-====
+<br>
 
-## Day 1: React Components and props
+---
+
+<br>
+
+## Section 1: Intro to React
+
+### Project Planning
+
+- [ ] Open up the Project Planning Document
+- [ ] Look over the "Inspiration and Ideas" section
+- [ ] Complete the "Let's Brainstorm" section.
+- [ ] Complete the "Trivia" section.
+- [ ] Update the json file with your own questions/answers.
+      <br>
+
+---
+
+<br>
+
+## Section 2: React Components, JSX, and Props
 
 ### Goal 1: Render a question from sample_data.json on the screen.
 
-- [ ] In App.jsx, create a Question component.
-- [ ] Render an instance of `<Question />` inside of `<App />`.
-- [ ] Add props to `<Question />` with the text "Question goes here".
-- [ ] In `<App />`, add a variable to set the current question number to 0.
-- [ ] Replace "Question goes here" with the `question.text` field found in data for the first question.
-  - [ ] HINT: Use the question number variable you just wrote.
-- [ ] BONUS: Add styling to your app.
+- [ ] Look over the "Flow Chart" section in your planning document.
 
->![Day 1.0 goal](https://i.imgur.com/eTZAXGk.png)
+In the components folder:
+
+- [ ] Create a new js file for a Question component (be sure to capitalize the first letter!)
+- [ ] Check that you have:
+
+  - [ ] Used the function keyword.
+  - [ ] Named the component Question.
+  - [ ] Included a return statement with an empty div.
+  - [ ] Exported the Question component at the end.
+
+In App.js:
+
+- [ ] Render an instance of `<Question />` inside the return statement of `<App />`.
+- [ ] Add a prop called `question` to `<Question />` with the value equal to "Question goes here".
+- [ ] In `<App />`, add a variable called currentQuestionNumber and set it equal to 0.
+
+Now, we want our question prop to show an actual question from our data file!
+
+- [ ] Using bracket notation, replace "Question goes here" with the `question.text` field found in data for the first question.
+  - [ ] HINT: Use the currentQuestionNumber variable you just wrote.
+
+> ![Day 1.0 goal](https://i.imgur.com/eTZAXGk.png)
 
 ### Goal 2: Render a "Next Question" button on the screen.
 
-- [ ] In App.jsx, create a NextQuestion component.
-- [ ] Write the JSX to display a button for the user to click for the next question. (It will not work yet.)
-- [ ] Render an instance of `<NextQuestion />` inside of `<App />`.
+In the components folder:
 
->![Day 1.5 goal](https://i.imgur.com/o4MzPjL.png)
+- [ ] Create a new js file for a NextQuestion component (be sure to capitalize the first letter!)
 
+- [ ] Check that you have:
 
-## Day 2: Nested components and state
+  - [ ] Used the function keyword.
+  - [ ] Named the component Question.
+  - [ ] Included a return statement with a button element that has the content "Next Question".
+  - [ ] Exported the NextQuestion component at the end.
+  - [ ] The component is imported to your App.js file.
+
+In App.js:
+
+- [ ] After the Question component, render an instance of `<NextQuestion />` inside the return statement of `<App />` (it will not work yet).
+
+> ![Day 1.5 goal](https://i.imgur.com/o4MzPjL.png)
+
+<br>
+
+---
+
+<br>
+
+## Section 3: Nested Components and State
 
 ### Goal 1: Render the answer choices from sample_data.json on the screen.
 
-- [ ] In App.jsx, create an Answer component.
-- [ ] Render an instance of `<Answer />` inside of `<Question />`.
-- [ ] Add props to `<Answer />` with the text "Answer goes here".
-  - [ ] Pass props for the answer choices into `<Question />`.
-  - [ ] Use those props to render the Answer components inside `<Question />` to display the answer choices.
-- [ ] Refactor to use map to map over all answer choices.
+In the components folder:
 
->![Day 2.0 goal](https://i.imgur.com/VpA8eRc.png)
+- [ ] Create a new js file for an AnswerChoices component (be sure to capitalize the first letter!)
+- [ ] Check that you have:
 
-### Goal 2: Render a button on the screen that reveals the correct answer when clicked.
+  - [ ] Used the function keyword.
+  - [ ] Named the component AnswerChoices.
+  - [ ] Included a return statement with an empty div.
+  - [ ] Exported the AnswerChoices component at the end.
 
-- [ ] Using `useState` in `<App />`, create a boolean state variable called `answerDisplayed` to keep track of whether the correct answer is shown.
-- [ ] Add a button to the App component that will update the state to display the correct answer when it is clicked.
-- [ ] Create an onClick function that sets the state to display the correct answer choice when your button is clicked.
-  - [ ] HINT: Access the correct answer choice using `sample_data.json`.
+In the Question component:
 
->![Day 2.5 goal - unanswered](https://i.imgur.com/JI6GroE.png)
->![Day 2.5 goal - answered](https://i.imgur.com/rufYX84.png)
+- [ ] Render an instance of `<AnswerChoices />` inside of `<Question />`.
+- [ ] Add a prop called `answer` to `<Answer />` with the value equal to "Answer choice goes here".
+- [ ] Be sure to pass your props into the `<Answer />` component.
 
+In the App.js file:
 
-## Day 3: Event handlers
+- [ ] Pass a prop for the answer choices in `<Question />`.
+  - [ ] We want to use the data from our json file!
+
+In the Question and AnswerChoices components:
+
+- [ ] Use those passed props so that the Answer components inside `<Question />` display the answer choices.
+
+> ![Day 2.0 goal](https://i.imgur.com/VpA8eRc.png)
+
+### Goal 2: Create state variables and functions that utilize state.
+
+In `<App />` (before the return statement):
+
+Declare state variables:
+
+- [ ] Refactor your currentQuestionNumber variable to a state variable. The value should remain 0.
+- [ ] Using `useState`, create a new variable called `answerDisplayed` and set it equal to a value of null. (This is to keep track of whether the correct answer is shown)
+
+Declare getCorrectAnswer function:
+
+- [ ] Create a function called getCorrectAnswer that takes questionNum as a parameter. Based on the data that's imported, this function should:
+  - [ ] Declare variables that represent the current question and correct choice index - assign their appropriate values.
+  - [ ] Return the correct choice of the current question.
+
+Declare questionAnswered function:
+
+- [ ] Create a function called questionAnswered. This function should have a conditional statement that includes:
+  - [ ] If the `answerState` is `null`, return a message that says "Click an answer above."
+  - [ ] If the `answerState` is correct, return a message that states what they chose is correct.
+  - [ ] Anything else, return a message that states what they chose is incorrect.
+
+Declare goToNextQuestion function:
+
+- [ ] Create a function called goToNextQuestion. This function should:
+  - [ ] Update the state of currentQuestionNum to itself plus 1.
+  - [ ] Updated the state of answerState to `null`.
+
+<!-- > ![Day 2.5 goal - unanswered](https://i.imgur.com/JI6GroE.png) >![Day 2.5 goal - answered](https://i.imgur.com/rufYX84.png) -->
+
+<br>
+
+---
+
+<br>
+
+## Section 4: Event Handlers & Refactoring
 
 ### Goal 1: Add functionality to your "Next Question" button so that it renders the next question when clicked.
 
-- [ ] Add state to `<App />` using the `useState` React hook to keep track of the current question number.
-  - [ ] Replace the current question number variable that you wrote in Day 1.
-- [ ] Create a function that updates the state to the next question number.
-- [ ] Make a prop on `<NextQuestion />` to pass the prop down to the button element to call that function when the button is clicked.
-- [ ] Check that every part of your question and answer updates to reflect the current question number.
-- [ ] Reset the state of `answerDisplayed` when the Next Question button is clicked so the correct answer stops being displayed.
-- [ ] BONUS: Add [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to hide `<NextQuestion />` when there are no more next questions.
-
->![Day 3.0 goal](https://i.imgur.com/fetraPF.png)
->![Day 3.0 with bonus](https://i.imgur.com/GruM8g2.png)
+- [ ] Create a prop on `<NextQuestion />` for your goToNextQuestion function.
+- [ ] Pass the prop down to the button element in that component so that it calls the goTonextQuestion function when the button is clicked.
 
 ### Goal 2: Add functionality so that when the user clicks on an answer choice, the correct answer appears.
 
-- [ ] Using `useState` in `<App />`, create a state variable to keep track of which answer choice the user clicks.
-  - [ ] Inside the map function for the Answer components, add an event handler that updates the state to be the choice that the user clicks.
-  - [ ] HINT: Use props to pass down the state from `<App />`.
-  - [ ] HINT: Don't forget to pass your `onClick` down as a prop as well.
-- [ ] Inside `<App />` (below state and above return), write a conditional that checks if the answer clicked is the correct answer.
-  - [ ] Display text on the screen telling the user if their answer choice was correct.
-  - [ ] Display text on the screen telling the user what the correct answer was.
-  - [ ] HINT: To do this, you should create a variable and display that variable inside your return statement.
-  - [ ] BONUS: Use [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation.
+Inside the `<App />` return statement:
 
-### Goal 3: Sort your Trivia app into separate files and import/export the components.
+- [ ] Add props to `<Question />`. One that represents the answer choices and another for the answerState function.
+- [ ] Check that every part of your Question and AnswerChoices components have their props passed.
+- [ ] Call the questionAnswered function.
 
-- [ ] Create a new `.js` file inside the components folder for each of your components.
-- [ ] Move the code for your components into their new files.
-- [ ] Add an export to each of your components.
-- [ ] Import all of your components into the correct files.
+Inside the AnswerChoices component:
 
->![Day 3.5 correct](https://i.imgur.com/HC7M6LH.png)
->![Day 3.5 wrong](https://i.imgur.com/DWQu3bb.png)
+- [ ] Add an event handler that updates the state to be the choice that the user clicks.
+  - HINT: Use props to pass down the state from `<App />`.
+  - HINT: Don't forget to pass your `onClick` down as a prop as well.
 
+### Goal 3: Refactors components to use map where you see multiple instances.
+
+- [ ] Use map to loop through the Answer component.
 
 ## Extensions!
 
+- [ ] Create a TriviaStatusBar component that takes answerState and correctAnswerState as props.
+- [ ] See if you can make the Next Question button only show after a question has been answered and to stop showing when all questions are answered!
+  - HINT: Look up [conditional rendering](https://reactjs.org/docs/conditional-rendering.html))
 - [ ] Make a timer that resets the game when the timer runs out.
 - [ ] Make a counter that keeps track of how many times you've guessed the correct answer.
 - [ ] Change the color of the answer buttons when the user guesses. For example turn the button with the correct answer to green.
