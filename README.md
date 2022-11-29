@@ -29,7 +29,6 @@ In this unit, coders will work in groups to build a project using HTML, CSS, Rea
 
 ### Goal 1: Render a question from sample_data.json on the screen.
 
-- [ ] Look over the "Flow Chart" section in your planning document.
 - [ ] Create a folder named "components".
 
 In the components folder:
@@ -65,7 +64,7 @@ In the components folder:
 
   - [ ] Used the function keyword.
   - [ ] Named the component Question.
-  - [ ] Included a return statement with a button element that has the content "Next Question".
+  - [ ] Included a return statement with a div that has a button element that has the content "Next Question" and a paragraph tag that says “Question #”
   - [ ] Exported the NextQuestion component at the end.
   - [ ] The component is imported to your App.js file.
 
@@ -92,7 +91,7 @@ In the components folder:
 
   - [ ] Used the function keyword.
   - [ ] Named the component AnswerChoices.
-  - [ ] Included a return statement with an empty div.
+  - [ ] Included a return statement with an empty div that has a className of “answer-choice”.
   - [ ] Exported the AnswerChoices component at the end.
 
 In the Question component:
