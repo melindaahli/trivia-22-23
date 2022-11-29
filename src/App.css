@@ -25,7 +25,23 @@ body {
   font-size: 17px;
 }
 
+.answer-choice {
+  font-family: "Do Hyeon", sans-serif;
+  border: solid 5px #00ffcc;
+  border-radius: 10px;
+  width: 200px;
+  margin: 5px auto;
+  font-family: "Do Hyeon", sans-serif;
+}
+
 .prompt {
   font-family: "Do Hyeon", sans-serif;
   font-size: 22px;
+}
+
+button {
+  font-family: "Do Hyeon", sans-serif;
+  padding: 10px;
+  border: solid 5px #00ffcc;
+  border-radius: 10px;
 }
